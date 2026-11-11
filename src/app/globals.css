@@ -3,21 +3,35 @@
 /* FLAT COLOURS ONLY. No linear/radial/conic gradients, no blur
    glassmorphism, no purple/indigo anywhere in this file or the app. */
 :root {
-  --bg-paper: #f2efe9;
-  --bg-obsidian: #0a0a0a;
-  --bg-concrete: #e4e0d8;
-  --bg-charcoal: #161616;
-  --ink-primary: #0a0a0a;
-  --ink-light: #f2efe9;
-  --ink-muted: #5a5751;
-  --rule-hairline: #c8c3b8;
-  --rule-dark: #262626;
-  --signal-vermilion: #ff3300;
-  --signal-acid: #c6f10e;
-  --signal-cobalt: #0047ff;
-  --signal-ochre: #d9822b;
-  --signal-crimson: #d91e36;
-  --signal-emerald: #00a86b;
+  /* Abyssal Obsidian & Cryo-Titanium — flat solid fills only */
+  --void-black: #060709;
+  --obsidian-slate: #0D1015;
+  --cryo-alabaster: #F4F6F9;
+  --titanium-ash: #E1E5EC;
+  --ink-white: #F4F6F9;
+  --ink-silver: #7E8794;
+  --ink-obsidian: #060709;
+  --hairline-dark: #1A202C;
+  --hairline-light: #CBD2D9;
+  --accent-cyan: #00E5FF;
+  --accent-emerald: #00D68F;
+  --accent-crimson: #FF1E42;
+  --accent-cobalt: #0052FF;
+  --accent-lime: #B8FF01;
+  /* Legacy aliases used by components (same v2 values) */
+  --bg-paper: #F4F6F9;
+  --bg-obsidian: #060709;
+  --bg-concrete: #E1E5EC;
+  --bg-charcoal: #0D1015;
+  --ink-primary: #060709;
+  --ink-light: #F4F6F9;
+  --ink-muted: #7E8794;
+  --rule-hairline: #CBD2D9;
+  --rule-dark: #1A202C;
+  --signal-acid: #B8FF01;
+  --signal-cobalt: #0052FF;
+  --signal-crimson: #FF1E42;
+  --signal-emerald: #00D68F;
 }
 
 html {
@@ -35,7 +49,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: var(--signal-vermilion); color: #ffffff; }
+::selection { background: var(--accent-crimson); color: #ffffff; }
 
 .font-display { font-family: var(--font-display), sans-serif; }
 .font-serif2 { font-family: var(--font-serif), Georgia, serif; }
@@ -55,8 +69,8 @@ body {
   body, a, button, [role="button"] { cursor: none; }
 }
 
-input[type="range"] { accent-color: var(--signal-vermilion); }
+input[type="range"] { accent-color: var(--accent-crimson); }
 button:focus-visible, a:focus-visible, input:focus-visible {
-  outline: 2px solid var(--signal-vermilion);
+  outline: 2px solid var(--accent-crimson);
   outline-offset: 2px;
 }

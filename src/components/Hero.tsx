@@ -30,17 +30,17 @@ export default function Hero() {
   return (
     <section id="hero" data-section="hero" className="relative z-[2] flex min-h-screen flex-col justify-end px-5 pb-24 pt-28 md:px-10">
       <div className="pointer-events-none absolute right-0 top-24 hidden w-[38vw] md:block">
-        <p className="font-mono2 text-[11px] leading-5 tracking-[0.14em] text-[#5A5751]">
+        <p className="font-mono2 text-[11px] leading-5 tracking-[0.14em] text-[#7E8794]">
           SCROLL — THE CORE RECONFIGURES
-          <br />12 ARTIFACTS · 4 ACTS · 0 GRADIENTS
+          <br />12 ARTIFACTS · 5 CHAPTERS · 0 GRADIENTS
           <br />BHOPAL, MP, IN — 19
         </p>
       </div>
 
-      <p className="mb-4 font-mono2 text-[11px] tracking-[0.22em] text-[#FF3300]">01 / THE HARD CORE</p>
+      <p className="mb-4 font-mono2 text-[11px] tracking-[0.22em] text-[#FF1E42]">01 / THE HARD CORE</p>
       <h1 ref={titleRef} className="font-display text-[clamp(3.5rem,9vw,9.5rem)] font-extrabold leading-[0.88] tracking-[-0.04em]">
         <span className="block overflow-hidden"><span className="hero-line block">DHYEY</span></span>
-        <span className="block overflow-hidden"><span className="hero-line block">PATEL<span className="text-[#FF3300]">.</span></span></span>
+        <span className="block overflow-hidden"><span className="hero-line block">PATEL<span className="text-[#FF1E42]">.</span></span></span>
       </h1>
 
       <p className="mt-6 max-w-2xl text-[clamp(1.4rem,2.6vw,2.2rem)] leading-tight">
@@ -55,7 +55,7 @@ export default function Hero() {
             onMouseEnter={() => { setProject(t.project); setCursor("inspect", `INSPECT — ${t.note}`); }}
             onMouseLeave={() => setCursor("default")}
             onClick={() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" })}
-            className="border border-[#0A0A0A] bg-[#F2EFE9] px-3 py-2 font-mono2 text-[11px] tracking-[0.12em] hover:bg-[#0A0A0A] hover:text-[#F2EFE9]"
+            className="border border-[#060709] bg-[#F4F6F9] px-3 py-2 font-mono2 text-[11px] tracking-[0.12em] hover:bg-[#060709] hover:text-[#F4F6F9]"
           >
             {t.word} ↗
           </button>
@@ -64,8 +64,8 @@ export default function Hero() {
 
       <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t hairline pt-4 font-mono2 text-[11px] tracking-[0.14em]">
         <span>{BASICS.headline}</span>
-        <span className="bg-[#0A0A0A] px-2 py-1 text-[#F2EFE9]">{BASICS.role}</span>
-        <Magnetic><a href="#mvp" className="bg-[#FF3300] px-3 py-2 text-white">START A 14-DAY SPRINT ↗</a></Magnetic>
+        <span className="bg-[#060709] px-2 py-1 text-[#F4F6F9]">{BASICS.role}</span>
+        <Magnetic><a href="#mvp" className="bg-[#FF1E42] px-3 py-2 text-white">START A 14-DAY SPRINT ↗</a></Magnetic>
       </div>
       <div style={{ transform: `skewX(${Math.max(-8, Math.min(8, velocity * -0.15))}deg)` }} className="sr-only" aria-hidden />
     </section>

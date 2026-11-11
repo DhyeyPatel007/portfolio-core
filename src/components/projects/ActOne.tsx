@@ -7,10 +7,10 @@ function ProjectHead({ p }: { p: (typeof PROJECTS)[number] }) {
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-3">
       <h3 className="font-display text-[clamp(2.4rem,6vw,5rem)] font-extrabold leading-[0.9] tracking-[-0.03em]">
-        <span className="font-mono2 text-sm tracking-[0.2em] text-[#5A5751]">{p.index} / </span>{p.name}
+        <span className="font-mono2 text-sm tracking-[0.2em] text-[#7E8794]">{p.index} / </span>{p.name}
       </h3>
       {p.url ? (
-        <a href={p.url} target="_blank" rel="noreferrer" className="border border-current px-3 py-2 font-mono2 text-[11px] tracking-[0.14em] hover:bg-[#0A0A0A] hover:text-[#F2EFE9]">
+        <a href={p.url} target="_blank" rel="noreferrer" className="border border-current px-3 py-2 font-mono2 text-[11px] tracking-[0.14em] hover:bg-[#060709] hover:text-[#F4F6F9]">
           LIVE SITE ↗ {p.urlLabel}
         </a>
       ) : (
@@ -21,40 +21,40 @@ function ProjectHead({ p }: { p: (typeof PROJECTS)[number] }) {
 }
 
 /* ---------- 01 AUDITIFY — 36-check live report-card dial ---------- */
-function AuditifyStage() {
+export function AuditifyStage() {
   const p = PROJECTS[0];
   const [score, setScore] = useState(0);
   const [whiteLabel, setWhiteLabel] = useState(false);
   const lit = Math.round((score / 100) * 36);
   return (
-    <article onMouseEnter={() => usePortfolio.getState().setProject(0)} data-section="works-flagship" className="border-t hairline bg-[#F2EFE9] px-5 py-16 md:px-10">
-      <p className="font-mono2 text-[11px] tracking-[0.22em] text-[#FF3300]">ACT I — FLAGSHIP · {p.tagline.toUpperCase()}</p>
+    <article onMouseEnter={() => usePortfolio.getState().setProject(0)} data-section="works-flagship" className="border-t hairline bg-[#F4F6F9] px-5 py-16 md:px-10">
+      <p className="font-mono2 text-[11px] tracking-[0.22em] text-[#FF1E42]">ACT I — FLAGSHIP · {p.tagline.toUpperCase()}</p>
       <div className="mt-4"><ProjectHead p={p} /></div>
       <p className="mt-4 max-w-2xl text-base leading-relaxed">{p.description}</p>
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <div>
           <div className="flex items-end justify-between">
             <span className="font-mono2 text-[11px] tracking-[0.18em]">36-CHECK REPORT-CARD DIAL — DRAG TO SCRUB</span>
-            <span className="font-display text-6xl font-extrabold text-[#FF3300]">{score}<span className="text-2xl">/100</span></span>
+            <span className="font-display text-6xl font-extrabold text-[#FF1E42]">{score}<span className="text-2xl">/100</span></span>
           </div>
           <input type="range" min={0} max={100} value={score} onChange={(e) => setScore(Number(e.target.value))} className="mt-4 w-full" aria-label="Auditify score scrubber" />
           <div className="mt-4 grid grid-cols-6 gap-1">
             {Array.from({ length: 36 }, (_, i) => (
-              <div key={i} title={`Check ${i + 1}`} className="flex h-9 items-center justify-center border hairline font-mono2 text-[10px]" style={{ background: i < lit ? "#FF3300" : "#E4E0D8", color: i < lit ? "#fff" : "#0A0A0A" }}>{i + 1}</div>
+              <div key={i} title={`Check ${i + 1}`} className="flex h-9 items-center justify-center border hairline font-mono2 text-[10px]" style={{ background: i < lit ? "#FF1E42" : "#E1E5EC", color: i < lit ? "#fff" : "#060709" }}>{i + 1}</div>
             ))}
           </div>
-          <p className="mt-3 font-mono2 text-[11px] tracking-[0.12em] text-[#5A5751]">{lit} / 36 CHECKS LIT · 0–100 REPORT-CARD SCORE</p>
+          <p className="mt-3 font-mono2 text-[11px] tracking-[0.12em] text-[#7E8794]">{lit} / 36 CHECKS LIT · 0–100 REPORT-CARD SCORE</p>
         </div>
         <div className="border hairline bg-white p-5">
           <p className="font-mono2 text-[11px] tracking-[0.18em]">PDF REPORT GENERATOR — WIREFRAME</p>
           <div className="mt-4 space-y-2">
-            <div className="h-3 w-3/4 bg-[#0A0A0A]" /><div className="h-3 w-1/2 bg-[#C8C3B8]" /><div className="h-3 w-2/3 bg-[#C8C3B8]" />
-            <div className="mt-3 flex gap-2"><span className="bg-[#FF3300] px-2 py-1 font-mono2 text-[10px] text-white">FULL PDF REPORT</span><span className="border hairline px-2 py-1 font-mono2 text-[10px]">SITE MONITORING ● LIVE</span></div>
+            <div className="h-3 w-3/4 bg-[#060709]" /><div className="h-3 w-1/2 bg-[#CBD2D9]" /><div className="h-3 w-2/3 bg-[#CBD2D9]" />
+            <div className="mt-3 flex gap-2"><span className="bg-[#FF1E42] px-2 py-1 font-mono2 text-[10px] text-white">FULL PDF REPORT</span><span className="border hairline px-2 py-1 font-mono2 text-[10px]">SITE MONITORING ● LIVE</span></div>
           </div>
-          <button onClick={() => setWhiteLabel(!whiteLabel)} className="mt-6 w-full border border-[#0A0A0A] px-3 py-3 font-mono2 text-[11px] tracking-[0.14em] hover:bg-[#0A0A0A] hover:text-[#F2EFE9]" aria-pressed={whiteLabel}>
+          <button onClick={() => setWhiteLabel(!whiteLabel)} className="mt-6 w-full border border-[#060709] px-3 py-3 font-mono2 text-[11px] tracking-[0.14em] hover:bg-[#060709] hover:text-[#F4F6F9]" aria-pressed={whiteLabel}>
             AGENCY WHITE-LABEL: {whiteLabel ? "ON — YOUR BRAND" : "OFF — AUDITIFY"}
           </button>
-          <p className="mt-3 text-sm text-[#5A5751]">Free for everyone. Signed-in users get monitoring for 10 sites and white-label reports.</p>
+          <p className="mt-3 text-sm text-[#7E8794]">Free for everyone. Signed-in users get monitoring for 10 sites and white-label reports.</p>
         </div>
       </div>
     </article>
@@ -79,8 +79,8 @@ function EngineCanvas({ engine, active }: { engine: string; active: boolean }) {
     const draw = (now: number) => {
       const t = (now - t0) / 1000;
       const w = canvas.width, h = canvas.height;
-      ctx.fillStyle = "#0A0A0A"; ctx.fillRect(0, 0, w, h);
-      ctx.strokeStyle = "#00A86B"; ctx.lineWidth = 2; ctx.beginPath();
+      ctx.fillStyle = "#060709"; ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = "#00D68F"; ctx.lineWidth = 2; ctx.beginPath();
       if (engine === "spiral") {
         for (let a = 0; a < Math.PI * 10; a += 0.08) {
           const r = a * 3.2 * (1 + 0.06 * Math.sin(t * 2 + a));
@@ -90,12 +90,12 @@ function EngineCanvas({ engine, active }: { engine: string; active: boolean }) {
       } else if (engine === "voice") {
         for (let i = 0; i < 24; i++) {
           const bh = 8 + Math.abs(Math.sin(t * 6 + i * 0.7)) * (h - 30);
-          ctx.fillStyle = "#00A86B"; ctx.fillRect(8 + i * ((w - 16) / 24), h - bh - 8, (w - 16) / 24 - 3, bh);
+          ctx.fillStyle = "#00D68F"; ctx.fillRect(8 + i * ((w - 16) / 24), h - bh - 8, (w - 16) / 24 - 3, bh);
         }
       } else if (engine === "tapping") {
         for (let i = 0; i < 12; i++) {
           const y = h / 2 + Math.sin(t * 8 + i) * 0 + (i % 2 === 0 ? -20 : 20) * Math.max(0, Math.sin(t * 4 + i));
-          ctx.fillStyle = "#00A86B"; ctx.beginPath(); ctx.arc(16 + i * ((w - 32) / 11), y, 5, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = "#00D68F"; ctx.beginPath(); ctx.arc(16 + i * ((w - 32) / 11), y, 5, 0, Math.PI * 2); ctx.fill();
         }
       } else {
         for (let x = 0; x < w; x += 2) {
@@ -112,34 +112,34 @@ function EngineCanvas({ engine, active }: { engine: string; active: boolean }) {
   return <canvas ref={ref} width={520} height={220} className="h-[220px] w-full" aria-label={`${engine} simulation`} />;
 }
 
-function DopaDiaryStage() {
+export function DopaDiaryStage() {
   const p = PROJECTS[1];
   const [engine, setEngine] = useState<string>("spiral");
   const [doseHour, setDoseHour] = useState(8);
   return (
-    <article onMouseEnter={() => usePortfolio.getState().setProject(1)} className="border-t hairline bg-[#0A0A0A] px-5 py-16 text-[#F2EFE9] md:px-10">
-      <p className="font-mono2 text-[11px] tracking-[0.22em] text-[#00A86B]">ACT I — FLAGSHIP · {p.tagline.toUpperCase()}</p>
+    <article onMouseEnter={() => usePortfolio.getState().setProject(1)} className="border-t hairline bg-[#060709] px-5 py-16 text-[#F4F6F9] md:px-10">
+      <p className="font-mono2 text-[11px] tracking-[0.22em] text-[#00D68F]">ACT I — FLAGSHIP · {p.tagline.toUpperCase()}</p>
       <div className="mt-4"><ProjectHead p={p} /></div>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#F2EFE9]">{p.description}</p>
+      <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#F4F6F9]">{p.description}</p>
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <div>
           <p className="font-mono2 text-[11px] tracking-[0.18em]">4-ENGINE CLINICAL TELEMETRY CONSOLE — TAP AN ENGINE</p>
-          <div className="mt-4 grid grid-cols-2 gap-px bg-[#262626]">
+          <div className="mt-4 grid grid-cols-2 gap-px bg-[#1A202C]">
             {ENGINES.map((e) => (
-              <button key={e.id} onClick={() => setEngine(e.id)} className="p-4 text-left" style={{ background: engine === e.id ? "#00A86B" : "#161616", color: engine === e.id ? "#0A0A0A" : "#F2EFE9" }} aria-pressed={engine === e.id}>
+              <button key={e.id} onClick={() => setEngine(e.id)} className="p-4 text-left" style={{ background: engine === e.id ? "#00D68F" : "#0D1015", color: engine === e.id ? "#060709" : "#F4F6F9" }} aria-pressed={engine === e.id}>
                 <span className="font-display text-lg font-bold">{e.name}</span>
                 <span className="block font-mono2 text-[10px] tracking-[0.12em]">{e.note.toUpperCase()}</span>
               </button>
             ))}
           </div>
           <div className="mt-px border hairline-dark"><EngineCanvas engine={engine} active /></div>
-          <p className="mt-3 font-mono2 text-[11px] tracking-[0.12em] text-[#5A5751]">SCORED VS YOUR OWN 7-DAY BASELINE · TIMED TO THE LEVODOPA DOSE CLOCK</p>
+          <p className="mt-3 font-mono2 text-[11px] tracking-[0.12em] text-[#7E8794]">SCORED VS YOUR OWN 7-DAY BASELINE · TIMED TO THE LEVODOPA DOSE CLOCK</p>
         </div>
         <div>
           <p className="font-mono2 text-[11px] tracking-[0.18em]">LEVODOPA DOSE CLOCK — DRAG THE HOUR</p>
           <div className="mt-4 flex items-center gap-6">
-            <div className="relative h-36 w-36 shrink-0 rounded-full border-2 border-[#00A86B]">
-              <div className="absolute left-1/2 top-1/2 h-14 w-[3px] origin-bottom bg-[#00A86B]" style={{ transform: `translate(-50%,-100%) rotate(${(doseHour / 24) * 360}deg)` }} />
+            <div className="relative h-36 w-36 shrink-0 rounded-full border-2 border-[#00D68F]">
+              <div className="absolute left-1/2 top-1/2 h-14 w-[3px] origin-bottom bg-[#00D68F]" style={{ transform: `translate(-50%,-100%) rotate(${(doseHour / 24) * 360}deg)` }} />
               <span className="absolute inset-0 flex items-center justify-center font-mono2 text-sm">{String(doseHour).padStart(2, "0")}:00</span>
             </div>
             <input type="range" min={0} max={23} value={doseHour} onChange={(e) => setDoseHour(Number(e.target.value))} className="w-full" aria-label="Levodopa dose hour" />
@@ -157,7 +157,7 @@ function DopaDiaryStage() {
 
 /* ---------- 03 PHALANX — 3-juror deliberation + human gate ---------- */
 type GateStep = "idle" | "j1" | "j2" | "j3" | "gate" | "executed";
-function PhalanxStage() {
+export function PhalanxStage() {
   const p = PROJECTS[2];
   const [step, setStep] = useState<GateStep>("idle");
   const [log, setLog] = useState<string[]>([]);
@@ -177,32 +177,32 @@ function PhalanxStage() {
   ] as const;
   const order = ["idle", "j1", "j2", "j3", "gate", "executed"];
   return (
-    <article onMouseEnter={() => usePortfolio.getState().setProject(2)} className="border-t hairline bg-[#F2EFE9] px-5 py-16 md:px-10">
-      <p className="font-mono2 text-[11px] tracking-[0.22em] text-[#FF3300]">ACT I — FLAGSHIP · {p.tagline.toUpperCase()}</p>
+    <article onMouseEnter={() => usePortfolio.getState().setProject(2)} className="border-t hairline bg-[#F4F6F9] px-5 py-16 md:px-10">
+      <p className="font-mono2 text-[11px] tracking-[0.22em] text-[#FF1E42]">ACT I — FLAGSHIP · {p.tagline.toUpperCase()}</p>
       <div className="mt-4"><ProjectHead p={p} /></div>
       <p className="mt-4 max-w-2xl text-base leading-relaxed">{p.description}</p>
       <div className="mt-8 grid gap-8 md:grid-cols-5">
         <div className="md:col-span-3">
-          <div className="grid grid-cols-4 gap-px bg-[#C8C3B8]">
+          <div className="grid grid-cols-4 gap-px bg-[#CBD2D9]">
             {stages.map((s) => {
               const active = order.indexOf(step) > order.indexOf(s.id as GateStep) || step === s.id;
               return (
-                <div key={s.id} className="p-4 text-center font-mono2 text-[11px] tracking-[0.12em]" style={{ background: active ? "#0A0A0A" : "#E4E0D8", color: active ? "#C6F10E" : "#0A0A0A" }}>
+                <div key={s.id} className="p-4 text-center font-mono2 text-[11px] tracking-[0.12em]" style={{ background: active ? "#060709" : "#E1E5EC", color: active ? "#B8FF01" : "#060709" }}>
                   {s.label}{active ? " ●" : ""}
                 </div>
               );
             })}
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
-            <button onClick={run} disabled={step !== "idle" && step !== "executed"} className="bg-[#0A0A0A] px-4 py-3 font-mono2 text-[11px] tracking-[0.14em] text-[#F2EFE9] disabled:opacity-40">SIMULATE PAYPAL SANDBOX DISPUTE →</button>
-            <button onClick={approve} disabled={step !== "gate"} className="bg-[#FF3300] px-4 py-3 font-mono2 text-[11px] tracking-[0.14em] text-white disabled:opacity-40">HUMAN APPROVE — EXECUTE ACTION</button>
-            <button onClick={() => { setStep("idle"); setLog([]); }} className="border border-[#0A0A0A] px-4 py-3 font-mono2 text-[11px] tracking-[0.14em]">RESET</button>
+            <button onClick={run} disabled={step !== "idle" && step !== "executed"} className="bg-[#060709] px-4 py-3 font-mono2 text-[11px] tracking-[0.14em] text-[#F4F6F9] disabled:opacity-40">SIMULATE PAYPAL SANDBOX DISPUTE →</button>
+            <button onClick={approve} disabled={step !== "gate"} className="bg-[#FF1E42] px-4 py-3 font-mono2 text-[11px] tracking-[0.14em] text-white disabled:opacity-40">HUMAN APPROVE — EXECUTE ACTION</button>
+            <button onClick={() => { setStep("idle"); setLog([]); }} className="border border-[#060709] px-4 py-3 font-mono2 text-[11px] tracking-[0.14em]">RESET</button>
           </div>
-          <p className="mt-3 font-mono2 text-[11px] tracking-[0.12em] text-[#5A5751]">DETERMINISTIC SCORING · NOTHING EXECUTES WITHOUT THE HUMAN GATE · $480 CONTEST / $210 OFFER / $95 CONCEDE — PROVEN LIVE ON SANDBOX</p>
+          <p className="mt-3 font-mono2 text-[11px] tracking-[0.12em] text-[#7E8794]">DETERMINISTIC SCORING · NOTHING EXECUTES WITHOUT THE HUMAN GATE · $480 CONTEST / $210 OFFER / $95 CONCEDE — PROVEN LIVE ON SANDBOX</p>
         </div>
-        <div className="bg-[#0A0A0A] p-4 font-mono2 text-[11px] leading-5 text-[#C6F10E] md:col-span-2">
-          {log.length === 0 ? <span className="text-[#5A5751]">DELIBERATION LOG — EMPTY. RUN THE SIMULATION.</span> : log.map((l, i) => <p key={i}>{`> ${l}`}</p>)}
-          {step === "executed" && <p className="mt-2 text-[#F2EFE9]">STATUS: EXECUTED — WAITING FOR BUYER</p>}
+        <div className="bg-[#060709] p-4 font-mono2 text-[11px] leading-5 text-[#B8FF01] md:col-span-2">
+          {log.length === 0 ? <span className="text-[#7E8794]">DELIBERATION LOG — EMPTY. RUN THE SIMULATION.</span> : log.map((l, i) => <p key={i}>{`> ${l}`}</p>)}
+          {step === "executed" && <p className="mt-2 text-[#F4F6F9]">STATUS: EXECUTED — WAITING FOR BUYER</p>}
         </div>
       </div>
     </article>

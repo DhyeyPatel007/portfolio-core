@@ -27,11 +27,11 @@ export default function Cursor() {
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[90] hidden [@media(pointer:fine)]:block">
-      <div ref={reticle} className="absolute h-7 w-7 border border-[#0A0A0A] bg-transparent">
-        <span className="absolute left-1/2 top-1/2 h-[5px] w-[5px] -translate-x-1/2 -translate-y-1/2 bg-[#FF3300]" />
+      <div ref={reticle} className="absolute h-7 w-7 border border-[#060709] bg-transparent">
+        <span className="absolute left-1/2 top-1/2 h-[5px] w-[5px] -translate-x-1/2 -translate-y-1/2 bg-[#FF1E42]" />
       </div>
       {label ? (
-        <div ref={pill} className="absolute whitespace-nowrap bg-[#0A0A0A] px-2 py-1 font-mono2 text-[10px] tracking-[0.14em] text-[#F2EFE9]">
+        <div ref={pill} className="absolute whitespace-nowrap bg-[#060709] px-2 py-1 font-mono2 text-[10px] tracking-[0.14em] text-[#F4F6F9]">
           {label}
         </div>
       ) : null}

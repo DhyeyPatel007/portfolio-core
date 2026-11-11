@@ -1,8 +1,38 @@
 "use client";
-import { useRef, type ReactNode, type MouseEvent } from "react";
+import { useRef, useState, type ReactNode, type MouseEvent } from "react";
 import gsap from "gsap";
 import { tick } from "@/lib/audio";
 import { usePortfolio } from "@/store/store";
+
+const GLYPHS = "01/_[]#";
+
+/** 180ms glyph-decode scramble: label dissolves into technical
+    characters and resolves back to the real text. */
+export function Scramble({ text }: { text: string }) {
+  const [label, setLabel] = useState(text);
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const run = () => {
+    if (timer.current) clearInterval(timer.current);
+    let frame = 0;
+    timer.current = setInterval(() => {
+      frame++;
+      const resolved = Math.floor((frame / 6) * text.length);
+      setLabel(
+        text.slice(0, resolved) +
+          text.slice(resolved).split("").map(() => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join("")
+      );
+      if (frame >= 6) {
+        if (timer.current) clearInterval(timer.current);
+        setLabel(text);
+      }
+    }, 30);
+  };
+  return (
+    <span onMouseEnter={run} className="inline-block">
+      {label}
+    </span>
+  );
+}
 
 /** Magnetic spring wrapper: damped displacement toward the pointer,
     elastic return on leave. */
