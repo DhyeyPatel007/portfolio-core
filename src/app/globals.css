@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* FLAT COLOURS ONLY. No linear/radial/conic gradients, no blur
+   glassmorphism, no purple/indigo anywhere in this file or the app. */
+:root {
+  --bg-paper: #f2efe9;
+  --bg-obsidian: #0a0a0a;
+  --bg-concrete: #e4e0d8;
+  --bg-charcoal: #161616;
+  --ink-primary: #0a0a0a;
+  --ink-light: #f2efe9;
+  --ink-muted: #5a5751;
+  --rule-hairline: #c8c3b8;
+  --rule-dark: #262626;
+  --signal-vermilion: #ff3300;
+  --signal-acid: #c6f10e;
+  --signal-cobalt: #0047ff;
+  --signal-ochre: #d9822b;
+  --signal-crimson: #d91e36;
+  --signal-emerald: #00a86b;
+}
+
+html {
+  background: var(--bg-paper);
+  scroll-behavior: auto;
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  background: var(--bg-paper);
+  color: var(--ink-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--signal-vermilion); color: #ffffff; }
+
+.font-display { font-family: var(--font-display), sans-serif; }
+.font-serif2 { font-family: var(--font-serif), Georgia, serif; }
+.font-mono2 {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.hairline { border-color: var(--rule-hairline); }
+.hairline-dark { border-color: var(--rule-dark); }
+
+/* 1px Swiss drafting grid — drawn with flat 1px divs in components,
+   never with gradients (gradients are banned in this codebase). */
+
+/* Custom cursor: hide the native pointer only on fine-pointer devices. */
+@media (pointer: fine) {
+  body, a, button, [role="button"] { cursor: none; }
+}
+
+input[type="range"] { accent-color: var(--signal-vermilion); }
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--signal-vermilion);
+  outline-offset: 2px;
+}
